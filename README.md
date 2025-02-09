@@ -48,7 +48,7 @@ The follower robot (`tortoisebot`) will track and follow the leader (`ros2_bot`)
 ## 📹 Demo
 Below is a short demonstration of the **leader-follower system** in action:
 
-
+https://github.com/user-attachments/assets/6552688e-b4d0-4ea0-9ac1-2bccced4314a
 
 *(Upload a `.gif` file inside the `docs/` folder in your repo to display it here.)*
 
@@ -64,14 +64,20 @@ Below is a short demonstration of the **leader-follower system** in action:
 ```
 multirobot_sim/
 │── launch/
-│   ├── spawn_ros2_bot.launch.py
-│   ├── spawn_tortoisebot.launch.py
-│── models/
+│   ├── gazebo.launch.py
+│   ├── master.launch.py
+│   ├── slave.launch.py
+│── master_models/         # URDF of master
+│   ├── meshes
+│   ├── urdf
+│── slave_models/         # URDF of slave
+│   ├── meshes
+│   ├── urdf
 │── scripts/
-│   ├── follower.py  # Follower robot logic
-│── urdf/
-│── docs/
-│   ├── demo.gif  # Demo video in GIF format
+│   ├── follower.py       # Follower robot logic
+│   ├── leader.py
+│── CMakeLists.txt
+│── package.xml
 │── README.md
 ```
 
