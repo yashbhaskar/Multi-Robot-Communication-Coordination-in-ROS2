@@ -15,31 +15,31 @@ This project demonstrates multi-robot communication and coordination in ROS 2 us
 1. Clone the repository and navigate to the workspace:
    ```bash
    cd ~/ros_ws/src
-   git clone <repo_url>
+   git clone https://github.com/yashbhaskar/Multi-Robot-Communication-Coordination-in-ROS2.git
    cd ~/ros_ws
    ```
 2. Build the workspace:
    ```bash
-   colcon build --symlink-install
+   colcon build
    source install/setup.bash
    ```
 
 ## 🎮 Usage
 
-### 1️⃣ Launch Gazebo with both robots:
+### 1️⃣ Launch Gazebo:
 ```bash
-ros2 launch multirobot_sim spawn_ros2_bot.launch.py
-ros2 launch multirobot_sim spawn_tortoisebot.launch.py
+ros2 launch multirobot_sim gazebo.launch.py
 ```
 
-### 2️⃣ Control the Leader Robot (ros2_bot):
+### 2️⃣ Spawn the Master robot and Slave robot:
 ```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/ros2_bot/cmd_vel
+ros2 launch multirobot_sim master.launch.py
+ros2 launch multirobot_sim slave.launch.py
 ```
 
-### 3️⃣ Start the Follower Node:
+### 3️⃣ Control the Leader Robot (Master):
 ```bash
-ros2 run multirobot_sim follower.py
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/cmd_vel
 ```
 
 The follower robot (`tortoisebot`) will track and follow the leader (`ros2_bot`) based on real-time pose updates.
@@ -53,10 +53,10 @@ https://github.com/user-attachments/assets/6552688e-b4d0-4ea0-9ac1-2bccced4314a
 
 ## 📜 ROS 2 Topics & Services Used
 - **Leader Robot publishes:**
-  - `/ros2_bot/cmd_vel` – Leader's velocity commands
-  - `/ros2_bot/odom` – Leader's odometry data
+  - `cmd_vel` – Leader's velocity commands
+  - `odom` – Leader's odometry data
 - **Follower Robot subscribes:**
-  - `/ros2_bot/odom` – Reads leader's position
+  - `odom` – Reads leader's position
   - `/tortoisebot/cmd_vel` – Moves the follower accordingly
 
 ## 📂 Project Structure
@@ -83,8 +83,6 @@ multirobot_sim/
 ## 🤝 Contributing
 Feel free to fork this repository, submit pull requests, or report issues.
 
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 🚀 **Happy Coding & Robotics!** 🤖
