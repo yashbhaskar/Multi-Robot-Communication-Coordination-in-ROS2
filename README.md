@@ -49,7 +49,6 @@ Below is a short demonstration of the **leader-follower system** in action:
 
 https://github.com/user-attachments/assets/6552688e-b4d0-4ea0-9ac1-2bccced4314a
 
-*(Upload a `.gif` file inside the `docs/` folder in your repo to display it here.)*
 
 ## 📜 ROS 2 Topics & Services Used
 - **Leader Robot publishes:**
