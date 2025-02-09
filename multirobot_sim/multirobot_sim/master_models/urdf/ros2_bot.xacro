@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<robot name="master" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find multirobot_sim)/master_models/urdf/materials.xacro" />
+<xacro:include filename="$(find multirobot_sim)/master_models/urdf/ros2_bot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0026283699322052346 1.1577803157919558e-17 0.03202679041651883" rpy="0 0 0"/>
+    <mass value="0.8326833430570596"/>
+    <inertia ixx="0.001511" iyy="0.002413" izz="0.003751" ixy="0.0" iyz="0.0" ixz="-1.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="4.829470157119431e-15 -0.012500000000000011 1.419697692739419e-14" rpy="0 0 0"/>
+    <mass value="0.008246680715673199"/>
+    <inertia ixx="2e-06" iyy="4e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.065 0.085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.065 0.085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-1.3711254354120683e-14 0.012499999999999997 5.5198901005582e-15" rpy="0 0 0"/>
+    <mass value="0.008246680715673199"/>
+    <inertia ixx="2e-06" iyy="4e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.065 -0.085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.065 -0.085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_1">
+  <inertial>
+    <origin xyz="-0.03 -9.860761315262648e-34 -0.006750000000000004" rpy="0 0 0"/>
+    <mass value="0.06936047530503713"/>
+    <inertia ixx="5e-06" iyy="5e-06" izz="7e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1 -0.0 -0.0175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1 -0.0 -0.0175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="5.026061718855929e-18 0.0 0.0049999999999999906" rpy="0 0 0"/>
+    <mass value="0.2219535209761188"/>
+    <inertia ixx="5.2e-05" iyy="5.2e-05" izz="0.0001" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0675" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0675" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find multirobot_sim)/master_models/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- Camera Link
+<link name="camera_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.05 0.05 0.05"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.05 0.05 0.05"/>
+    </geometry>
+  </collision>
+</link>
+
+Camera Joint
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_link"/>
+</joint> -->
+
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="-0.065 -0.085 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="-0.065 0.085 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="caster_joint" type="fixed">
+  <origin xyz="0.1 0.0 0.0175" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_1"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0675" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+</robot>
