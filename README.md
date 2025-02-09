@@ -49,13 +49,21 @@ Below is a short demonstration of the **leader-follower system** in action:
 
 https://github.com/user-attachments/assets/6552688e-b4d0-4ea0-9ac1-2bccced4314a
 
+## Rqt Graph
+1. /multirobot_sim spawns an entity (/spawn_entity).
+2. A teleop_twist_keyboard node sends velocity commands (/cmd_vel) to control movement.
+3. A /ros2_bot publishes its odometry (/ros2_bot/odom).
+4. A leader_pose_publisher extracts and publishes the leader’s pose (/leader_pose).
+5. A tortoisebot_follower subscribes to /leader_pose and generates velocity commands (/tortoisebot/cmd_vel) for /tortoisebot.
+   ![Screenshot from 2025-02-09 15-14-33](https://github.com/user-attachments/assets/e8f3cb1b-08bc-4b15-80f3-9847e2014b23)
+
 
 ## 📜 ROS 2 Topics & Services Used
 - **Leader Robot publishes:**
   - `cmd_vel` – Leader's velocity commands
-  - `odom` – Leader's odometry data
+  - `/ros2_bot/odom` – Leader's odometry data
 - **Follower Robot subscribes:**
-  - `odom` – Reads leader's position
+  - `/ros2_bot/odom` – Reads leader's position
   - `/tortoisebot/cmd_vel` – Moves the follower accordingly
 
 ## 📂 Project Structure
